@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title><%= doctor ? doctor.name + ' - ' + doctor.specialty : 'Doctor Not Found' %></title>
+  <style>
+    /* Your CSS styles here */
+    .booked {
+      color: red; /* Color for booked slots */
+    }
+  </style>
+</head>
+<body>
+ 
+  <% if (typeof user !== 'undefined') { %>
+    <%- include('navbar', { user: user }) %>
+  <% } %>
+
+
+
+  <div class="container">
+  <% if (doctor) { %>
+    <h1><%= doctor.name %> - <%= doctor.specialty %></h1>
+    <form action="/appointment" method="post" onsubmit="return checkAvailability('<%= doctor.id %>')">
+      <input type="hidden" name="doctorId" value="<%= doctor.id %>">
+      <label for="patientName">Patient Name:</label>
+      <input type="text" name="patientName" required>
+
+      <label for="appointmentTime">Select Appointment Time:</label>
+      <select name="appointmentTime" required>
+        <% for (let hour = 9; hour <= 18; hour++) { %>
+          <% const formattedHour = hour < 10 ? '0' + hour : hour; %>
+          <option value="<%= formattedHour %>:00"><%= formattedHour %>:00</option>
+        <% } %>
+      </select>
+
+      <label for="appointmentDate">Select Appointment Date:</label>
+      <input type="date" name="appointmentDate" required>
+
+      <button type="submit">Book Appointment</button>
+    </form>
+
+    <script>
+      function checkAvailability(doctorId) {
+        const selectedTime = document.querySelector('select[name="appointmentTime"]').value;
+        const selectedDate = document.querySelector('input[name="appointmentDate"]').value;
+        const selectedDateTime = new Date(`${selectedDate}T${selectedTime}:00`);
+
+        const bookedAppointments = JSON.parse('<%= bookedAppointments %>');
+
+        // Check if the selected date and time is booked
+        if (bookedAppointments.some(appointment => appointment.doctorId === doctorId &&
+          new Date(appointment.appointmentTime).getTime() === selectedDateTime.getTime())) {
+          alert('The selected appointment time is already booked. Please choose a different time.');
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  <% } else { %>
+    <p>Doctor not found.</p>
+  <% } %>
+</div>
+</body>
+</html>

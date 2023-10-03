@@ -1,0 +1,12 @@
+<nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <% if (!user) { %> <!-- Check if the user is not logged in -->
+        <li><a href="/signup">Signup</a></li>
+      <% } %>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/profile">Profile</a></li> 
+      <li><a href="/logout">Logout</a></li><!-- Always show Profile -->
+    </ul>
+  </nav>
+  

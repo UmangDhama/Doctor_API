@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Index</title>
+  <style>
+    /* Your CSS styles here */
+  </style>
+</head>
+<body>
+  
+  <% if (typeof user !== 'undefined') { %>
+    <%- include('navbar', { user: user }) %>
+  <% } %>
+
+
+  <div class="container">
+  
+  <h1>Welcome to the Doctor Appointment System</h1>
+  <p>This is the home page. You can navigate to other sections using the menu above.</p>
+
+  <h2>Available Doctors</h2>
+  <ul>
+    <% doctors.forEach(doctor => { %>
+      <li>
+        <a href="/doctor/<%= doctor.id %>"><%= doctor.name %> - <%= doctor.specialty %></a>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+</body>
+</html>

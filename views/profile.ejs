@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>User Profile</title>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/appointments">Appointments</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+  <h1>Welcome, <%= user.username %>!</h1>
+  <p>Total visits: <%= user.totalVisits %></p>
+  <h2>Your Appointments:</h2>
+  <ul >
+    <% if (appointments && appointments.length > 0) { %>
+      <% appointments.forEach((appointment) => { %>
+        <li id="appoint">
+          Doctor ID: <%= appointment.doctorId %> | 
+          Patient: <%= appointment.patientName %> | 
+          Time: <%= new Date(appointment.appointmentTime).toLocaleString() %>
+        </li>
+      <% }); %>
+    <% } else { %>
+      <li>No appointments found.</li>
+    <% } %>
+  </ul>
+  </div>
+</body>
+</html>

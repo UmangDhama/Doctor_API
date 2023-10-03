@@ -1,0 +1,122 @@
+/* styles.css */
+
+/* Body styles */
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container styles */
+  .container {
+    text-align: center;
+    background-color: white; /* White container */
+    padding: 20px;
+    padding-right: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    max-width: 600px; /* Limit container width */
+    width: 100%;
+    
+  }
+  
+  /* Navigation styles */
+  nav {
+    position:fixed;
+    top:0;
+    width:100%;
+    background-color: #3b5998; /* Facebook blue */
+    padding: 10px;
+    color: white;
+    padding-left: 10px;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  nav li {
+    margin-right: 40px;
+    font-size: large ;
+    font-weight: bold;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Page title styles */
+  .page-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* List styles */
+  /* ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* List item styles */
+ .container li {
+  list-style-type: none;
+
+    margin-bottom: 10px;
+  } 
+  #appoint{
+
+    border: 2px solid black;
+    padding: 2px;
+    list-style-type: none;
+    font-size: medium;
+    text-align: center;
+  }
+  /* Button styles */
+  button {
+    padding: 10px 20px;
+    background-color: #3b5998; /* Facebook blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2a4375; /* Darker Facebook blue on hover */
+  }
+  
+  /* Form styles */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-bottom: 5px;
+  }
+  
+  form input, form select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Additional styles for specific elements */
+  .booked {
+    color: red; /* Color for booked slots */
+  }
+  

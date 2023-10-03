@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Your Appointments</title>
+</head>
+<body>
+
+  <% if (typeof user !== 'undefined') { %>
+    <%- include('navbar', { user: user }) %>
+  <% } %>
+
+
+  <div class="container">
+  <h1>Your Appointments</h1>
+  <ul>
+    <% appointments.forEach(appointment => { %>
+      <li>
+        Appointment Time: <%= new Date(appointment.appointmentTime).toLocaleString() %>
+      </li>
+    <% }); %>
+  </ul>
+</div>
+</body>
+</html>

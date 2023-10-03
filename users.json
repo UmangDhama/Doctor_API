@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "username": "misti",
+      "email": "misti8226@gmail.com",
+      "phone": "misti",
+      "hashedPassword": "Umang@21",
+      "totalVisits": 0,
+      "appointments": []
+    },
+    {
+      "username": "abc",
+      "email": "umangdhama21@gmail.com",
+      "phone": "09528891733",
+      "hashedPassword": "Umang@21",
+      "totalVisits": 0,
+      "appointments": []
+    }
+  ]
+}
